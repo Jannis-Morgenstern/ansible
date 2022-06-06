@@ -5,3 +5,6 @@
     become: true
     community.general.pacman:
       update_cache: true
+
+  tasks:
+    - include: tasks/neovim.yml

@@ -1,0 +1,14 @@
+- name: get neovim
+  ansible.builtin.git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: "{{ lookup('env', 'HOME') }}/opt/neovim"
+
+- name: make neovim
+  make:
+    chdir: "{{ lookup('env', 'HOME') }}/opt/neovim"
+
+- name: install neovim
+  make:
+    chdir: "{{ lookup('env', 'HOME') }}/opt/neovim"
+    target: install
+  become: true

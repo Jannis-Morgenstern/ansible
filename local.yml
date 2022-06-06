@@ -1,0 +1,7 @@
+- hosts: localhost
+
+  pre_tasks:
+  - name: update pacman cache
+    become: true
+    community.general.pacman:
+      update_cache: true
